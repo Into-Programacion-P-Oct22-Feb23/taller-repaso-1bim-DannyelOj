@@ -27,16 +27,16 @@ public class JavaApplication3 {
         String cadena = " ";
         boolean bandera = true;
         int cedula;
-        int horasMatutinas;
-        int horasNocturnas;
+        double horasMatutinas;
+        double horasNocturnas;
         String ciudadEmpresa;
         int valorMatutina = 10;
-        int totalMatutinas;
-        int totalNocturnas;
-        int valorNocturna = 15;
+        double totalMatutinas;
+        double totalNocturnas;
+        double valorNocturna = 15;
         double subtotal;
         double valorCancelar;
-        double adicional = 0.10;
+        double adicional;
         double seguro = 0.18;
         int contador = 1;
         
@@ -59,13 +59,12 @@ public class JavaApplication3 {
             
             if(horasNocturnas >= 10){
                 
-                adicional = adicional * valorNocturna;
-                valorNocturna = (int) (valorNocturna + adicional);
-                totalNocturnas = valorNocturna * horasNocturnas;  
+                adicional = valorNocturna * 0.10 ;
+                valorNocturna = (valorNocturna + adicional);
+                totalNocturnas = valorNocturna  * horasNocturnas;  
             } else{
                 totalNocturnas = valorNocturna * horasNocturnas; 
             }  
-            
             subtotal = totalNocturnas + totalMatutinas;
             
             seguro = subtotal * seguro;
@@ -73,8 +72,8 @@ public class JavaApplication3 {
             valorCancelar = subtotal - seguro;
             
             cadena = String.format("%s Rol del trabajador de nombre %s y "
-                    + "%d\n Horas Matutinas trabajadas: %d\nHoras Nocturnas "
-                    + "trabajadas: %d\n Subtotal: %.2f\n Seguro Social: %.2f\n "
+                    + "%d\n Horas Matutinas trabajadas: %f\nHoras Nocturnas "
+                    + "trabajadas: %f\n Subtotal: %.2f\n Seguro Social: %.2f\n "
                     + "Total a cancelar %.2f\n", cadena, nombre, cedula, 
                     horasMatutinas, horasNocturnas, subtotal, seguro,
                     valorCancelar );
